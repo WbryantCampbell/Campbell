@@ -1,0 +1,131 @@
+﻿
+@model DVDLibrary.Models.DVD
+@{
+    ViewBag.Title = "DetailedView";
+}
+<head>
+    <link href="~/Content/jquery.rateyo.css" rel="stylesheet" type="text/css" />
+</head>
+
+<div class="row">
+    <div class="col-xs-8 col-xs-offset-2">
+        <h4>@Model.Title</h4>
+        <p style="text-align: right">
+            @Html.ActionLink("List", "List", "Home",new { id = Model.id }, new {@class = "btn btn-primary"})
+            @Html.ActionLink("Edit", "Edit", "Home", new { id = Model.id }, new { @class = "btn btn-primary" })
+            @Html.ActionLink("Home","Index","Home", new { id = Model.id }, new {@class="btn btn-primary"})
+        </p>
+        <h4>Info</h4>
+        <table class="table table-striped table-bordered">
+            <tbody>
+                <tr>
+                    <td>Release Date</td>
+                        <td>@Model.ReleaseDate.Value.ToShortDateString()</td>
+                </tr>
+                <tr>
+                    <td>MPAA Rating</td>
+                    <td>@Model.MPAA.ToString()</td>
+                </tr>
+                <tr>
+                    <td>Director Name</td>
+                    <td>@Model.DirectorName</td>
+                </tr>
+                <tr>
+                    <td>Studio</td>
+                    <td>@Model.Studio</td>
+                </tr>
+                <tr>
+                    <td>User Rating</td>
+                    @Html.HiddenFor(m => m.UserRating, new { @id = "userRating" })
+                    <td><div id="rateYo"></div></td>
+                </tr>
+                @if (Model.UserNotes != null)
+            {
+                    <tr>
+                        <td>User Notes</td>
+                        <td>@Model.UserNotes</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+        @if (Model.Actors[0].FirstName != null)
+        {
+            <h4>Actors</h4>
+            <table class="table table-striped table-bordered">
+                <thead>
+                <tr>
+                    <th>
+                        Actor
+                    </th>
+                    <th>
+                        Character Name
+                    </th>
+                </tr>
+                </thead>
+                @foreach (var actor in @Model.Actors)
+                {
+                    <tbody>
+                    <tr>
+                        <td>
+                            @actor.FirstName @actor.LastName
+                        </td>
+                        <td>
+                            @actor.CharName
+                        </td>
+                    </tr>
+                    </tbody>
+                }
+            </table>
+        }
+        else
+        {
+            <p>No actors currently set for this DVD. </p>
+        }
+    </div>
+
+    <div class="row">
+        <div class="col-xs-8 col-xs-offset-2">
+            <p style="text-align: right">@Html.ActionLink("Borrower", "Borrower", "Home", new { id = Model.id }, new { @class = "btn btn-primary" })</p>
+            <h4>Who's Got It?</h4>
+            @if (Model.Borrwer?.Name == null || Model.Borrwer.DateBorrowed == null)
+            {
+                <p>This DVD is currently not on loan to anyone.</p>
+            }
+            else
+            {
+                <table class="table table-striped table-bordered">
+                    <tbody>
+                    <tr>
+                        <td>Name</td>
+                        <td>@Model.Borrwer.Name</td>
+                    </tr>
+                    <tr>
+                        <td>Date Borrowed</td>
+                        <td>@Model.Borrwer.DateBorrowed.Value.ToShortDateString()</td>
+                    </tr>
+                    <tr>
+                        <td>Date Returned</td>
+                        @if (@Model.Borrwer.DateReturned == null)
+                        {
+                            <td>Not Yet Returned</td>
+                        }
+                        else
+                        {
+                            <td>@Model.Borrwer.DateReturned.Value.ToShortDateString()</td>
+                        }
+                    </tr>
+                    </tbody>
+                </table>
+            }
+        </div>
+    </div>
+</div>
+
+
+
+@section scripts{
+    <script src="~/scripts/jquery.rateyo.min.js"></script>
+    <script src="~/scripts/app/InitRateYoReadOnly.js"></script>
+}
+

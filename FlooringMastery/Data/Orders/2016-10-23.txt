@@ -1,0 +1,2 @@
+OrderNumber,CustomerName,DateOrdered,Area,StateAbbrev,StateName,TaxRate,ProdName,MaterialCostSqFt,LaborCostSqFt,OrderTotal,OrderTax
+1,Randy Jones ,10/23/2016 12:00:00 AM,4567,PA,Pennsylvania,6.75,Wood,5.15,4.75,48265.197750,3051.897750

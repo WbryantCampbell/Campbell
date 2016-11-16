@@ -1,0 +1,39 @@
+﻿@model DVDLibrary.Models.DVD
+
+@{
+    ViewBag.Title = "Borrower";
+}
+
+<div class="row">
+    <div class="col-xs-offset-2 col-xs-8">
+        <h2>@Model.Title</h2>
+        <hr />
+        @using (@Html.BeginForm("Borrower", "Home", FormMethod.Post))
+        {
+            @Html.HiddenFor(d => d.id)
+            <div class="form-group">
+                <label>Borrowers Name</label><br />
+                @Html.EditorFor(d => d.Borrwer.Name, new { @class = "form-control" })
+            </div>
+            <div class="form-group">
+                <label>Date Borrowed</label><br />
+                @Html.EditorFor(d => d.Borrwer.DateBorrowed, new { @class = "form-control" })
+            </div>
+            <div class="form-group">
+                <label>Date Returned</label><br />
+                @Html.EditorFor(d => d.Borrwer.DateReturned, new { @class = "form-control" })
+            </div>
+            <button class="btn btn-primary">Submit</button>
+            @Html.ActionLink("Cancel", "List","Home", null, new {@class="btn btn-danger"})
+        }
+    </div>
+</div>
+<br/>
+<br/>
+<br/>
+
+
+@section scripts
+{
+    <script src="~/scripts/jquery-1.10.2.min.js"></script>
+}

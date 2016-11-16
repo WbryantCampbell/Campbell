@@ -1,0 +1,11 @@
+﻿@model DVDLibrary.Models.DVD
+
+<h4>Search By Title</h4>
+<p>
+    Enter a the title of a DVD to check and see if it is in your collection.
+    @using (Html.BeginForm("SearchByTitle", "Home", null, FormMethod.Post))
+            {
+        @Html.TextBoxFor(d => d.Title)
+        <button>Search</button>
+    }
+</p>

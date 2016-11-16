@@ -1,0 +1,2 @@
+OrderNumber, CustomerName, DateOrdered, Area, StateAbbrev, StateName, TaxRate, ProdName, MaterialCostSqFt, LaborCostSqFt, OrderTotal, OrderTax
+1,Dinkleberry Goober,10/19/2016 12:00:00 AM,120,MI,Michigan,5.75,Wood,5.15,4.75,1256.310000,68.310000

@@ -1,0 +1,56 @@
+﻿@model List<DVDLibrary.Models.DVD>
+@{
+    ViewBag.Title = "List";
+}
+<head>
+    <link href="~/Content/jquery.rateyo.css" rel="stylesheet" type="text/css" />
+</head>
+
+
+<div class="container">
+<h2> Your DVD Library</h2>
+<p>
+    @Html.ActionLink("Add a DVD", "Add", "Home", null, new { @class = "btn btn-primary" })
+    @Html.ActionLink("Search", "SearchPage", "Home", null, new { @class = "btn btn-primary" })
+    @Html.ActionLink("Home", "Index", "Home", null, new { @class = "btn btn-primary" })
+</p>
+<table class="table table-bordered table-striped">
+    <thead>
+    <tr>
+        <th>Title</th>
+        <th>Release Date</th>
+        <th>MPAA Rating</th>
+        <th>User Rating</th>
+    </tr>
+    </thead>
+    <tbody>
+    @{ int i = 1;
+    foreach (var dvd in Model)
+        {
+        <tr>
+
+
+            <td>@dvd.Title</td>
+            <td>@dvd.ReleaseDate.Value.ToShortDateString()</td>
+            <td>@dvd.MPAA </td>
+            <td><div class="rateYo" id="rateYo_@i" data-rating="@dvd.UserRating" ></div></td>
+
+
+               <td>
+                  @Html.ActionLink("View", "DetailedView", "Home", new { id = dvd.id }, new { @class = "btn btn-xs btn-info" })
+                @Html.ActionLink("Edit", "Edit", "Home", new { id = dvd.id }, new { @class = "btn btn-xs btn-warning" }) |
+                @Html.ActionLink("Delete", "Delete", "Home", new { id = dvd.id }, new { @class = "btn btn-xs btn-danger" }
+                    )
+            </td>
+        </tr>
+            i++;
+        }
+
+    }
+    </tbody>
+</table>
+</div>
+@section scripts{
+    <script src="~/scripts/jquery.rateyo.min.js"></script>
+    <script src="~/scripts/app/RateYoList.js"></script>
+    }

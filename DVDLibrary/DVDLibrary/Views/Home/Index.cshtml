@@ -1,0 +1,28 @@
+﻿@model DVDLibrary.Models.DVD
+@{
+    ViewBag.Title = "Index";
+}
+
+<div class="row">
+    <div class="col-xs-offset-2  col-xs-8">
+        <h2>DVD Library</h2>
+        <hr/>
+        <h4>List</h4>
+        <p>
+            Welcome to your personal DVD Library.
+            Click the button below to view a list of DVD's currently in your library.
+            <br/>
+            @Html.ActionLink("View List", "List", "Home", null, new { @class = "btn btn-primary" })
+        </p>
+        <hr/>
+        @Html.Partial("_searchView")
+        <hr/>
+        <h4>Add DVD</h4>
+        <p>
+            Click the button below to add a new DVD to your collection.
+            <br/>
+            @Html.ActionLink("Add","Add", "Home", null, new {@class="btn btn-primary"})
+        </p>
+        
+    </div>
+</div>

@@ -1,0 +1,90 @@
+﻿@model DVDLibrary.Models.DVD
+@{
+    ViewBag.Title = "Edit";
+}
+<head>
+    <link href="~/Content/jquery.rateyo.css" rel="stylesheet" type="text/css" />
+</head>
+<h2 class="text-center">Edit a DVD in your collection</h2>
+<div class="container">
+    <div class="col-xs-3"></div>
+    <div class="col-xs-6">
+        <div class="row">
+            @using (Html.BeginForm("Edit", "Home", null, FormMethod.Post, new { id = "addDVD" }))
+            {
+                @Html.ValidationSummary()
+                <div class="panel panel-primary">
+                    <div class="col-xs-8">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">New DVD</h4>
+                        </div>
+                        <div class="panel-body">
+                            <div class="form-group">
+                                <label>Title</label>
+                                @Html.TextBoxFor(m => m.Title, new { @class = "form-control" })
+                            </div>
+                            <div class="form-group">
+                                <label>Release Date</label><br />
+                                @Html.EditorFor(m => m.ReleaseDate, new { @class = "form-control" })
+                            </div>
+                            <div class="form-group">
+                                <label>MPAA Rating</label>
+                                @Html.EnumDropDownListFor(m => m.MPAA, "Select a Rating", new { @class = "form-control" })
+                            </div>
+                            <div class="form-group">
+                                <label>Director Name</label>
+                                @Html.TextBoxFor(m => m.DirectorName, new { @class = "form-control" })
+                            </div>
+                            <div class="form-group">
+                                <label>Studio</label>
+                                @Html.TextBoxFor(m => m.Studio, new { @class = "form-control" })
+                            </div>
+                            <div class="form-group">
+                                <label>Your rating</label>
+                                <div id="rateYo"></div>
+                                @Html.HiddenFor(m => m.UserRating, new { @id = "userRating" })
+                            </div>
+                            <div class="form-group">
+                                <label>User Notes</label>
+                                <br />
+                                @Html.TextAreaFor(m => m.UserNotes, new { @cols = "80", @rows = "4" })
+                            </div>
+                            <div class="form-group">
+                                <h4>Who were the top actors in the film?</h4>
+                            </div>
+                            @{ int i = 1;
+                            foreach (var actor in Model.Actors)
+                                {
+                                <label>Actor #@i</label>
+                                <div class="form-group">
+                                    @Html.TextBoxFor(m => m.Actors[i-1].FirstName,new { @class = "form-control", placeholder = "First Name" })
+                                </div>
+                                <div class="form-group">
+                                    @Html.TextBoxFor(m => m.Actors[i-1].LastName,new { @class = "form-control", placeholder = "Last Name" })
+                                </div>
+                                <div class="form-group">
+                                    @Html.TextBoxFor(m => m.Actors[i-1].CharName,new { @class = "form-control", placeholder = "Character Name" })
+                                </div>
+                                i++;
+                                } 
+                            }
+                            <button class="btn btn-primary">Save</button>
+                        </div>
+                    </div>
+                </div>
+            }
+
+        </div>
+    </div>
+    <div class="col-xs-3"></div>
+</div>
+@section scripts{
+    <script src="~/scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/scripts/jquery.validate.min.js"></script>
+    <script src="~/scripts/app/jquery-validate-default.js"></script>
+    <script src="~/scripts/additional-methods.min.js"></script>
+    <script src="~/scripts/jquery.rateyo.min.js"></script>
+    <script src="~/scripts/app/dvdValidation.js"></script>
+    <script src="~/scripts/app/InitRateYo.js"></script>
+    <script src="~/scripts/app/AddDVD.js"></script>
+}
