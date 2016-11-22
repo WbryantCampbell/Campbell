@@ -48,6 +48,13 @@ namespace FlooringMastery.BLL
 
             return total;
         }
+
+        public List<States> GetAllStates()
+        {
+            var repo = RepositoryFactory.CreateStateRepository();
+
+            return repo.GetAllStates();
+        } 
     }
 }
 

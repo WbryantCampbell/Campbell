@@ -13,16 +13,17 @@ namespace FlooringMastery.Data.Repositories
 {
     internal class FileStateRepository : IStateRepository
     {
-        //public Dictionary<string, States> CreateStateDictionary()
-        //{
-        //    throw new NotImplementedException();
-        //}
-
         public States FindByStateAbbreviation(string abbrev)
         {
             var state = ReadFromFile();
             return state.FirstOrDefault(a => a.StateAbbrev == abbrev);
         }
+
+        public List<States> GetAllStates()
+        {
+            var list = ReadFromFile();
+            return list;
+        } 
 
         private List<States> ReadFromFile()
         {

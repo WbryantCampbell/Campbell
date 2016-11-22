@@ -25,7 +25,7 @@ namespace FlooringMastery.Data
                     repo = new FileOrderRepository();
                     break;
                 default:
-                    //TODO: LOG THIS SHIT
+                    //TODO: LOG THIS
                     throw new Exception("Only Modes are TEST and PROD");
             }
 

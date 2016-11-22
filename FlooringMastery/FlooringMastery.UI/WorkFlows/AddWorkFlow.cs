@@ -7,7 +7,7 @@ using FlooringMastery.Models;
 using FlooringMastery.BLL;
 
 
-//TODO: Fix State tax rate in display and validation... also order number
+
 namespace FlooringMastery.UI.WorkFlows
 {
     public class AddWorkFlow
@@ -54,11 +54,18 @@ namespace FlooringMastery.UI.WorkFlows
 
         private string GetStateFromUser()
         {
+            var states = stateManage.GetAllStates();
             //TODO: Validate for correct input
             Console.WriteLine("What State is the Customer in? Please use Abbreviation");
-            string state = Console.ReadLine();
-           
-            return state;
+            Console.WriteLine("Your options are as follows:");
+            Console.WriteLine();
+            foreach (States state in states)
+            {
+                Console.WriteLine($"\t {state.State} ===> {state.StateAbbrev}");  
+            }
+            string selectedState = Console.ReadLine();
+            
+            return selectedState;
 
         }
 
@@ -91,9 +98,17 @@ namespace FlooringMastery.UI.WorkFlows
 
         private string GetProdFromUser()
         {
-            //TODO:Validate and possibly make a list prods method in BLL that's called in workflow
+            var prods = productManage.GetAllProducts();
+            //TODO:Validate and possibly make a list prods method in BLL that's called in workflow 
             Console.WriteLine("What flooring would the Customer like?");
-           string prod = Console.ReadLine();
+            Console.WriteLine("Your choices are as follows:");
+
+            foreach (Products product in prods)
+            {
+                Console.WriteLine($"\t {product.ProductName}");
+            }
+
+            string prod = Console.ReadLine();
 
             return prod;
 

@@ -10,12 +10,18 @@ using FlooringMastery.Models.Responses;
 
 namespace FlooringMastery.Data.Repositories
 {
-    class FileProductRepository : IProductRepository 
+    public class FileProductRepository : IProductRepository 
     {
         public Products FindByProductName(string productName)
         {
             var prod = ReadFromFile();
             return prod.FirstOrDefault(a => a.ProductName == productName);
+        }
+
+        public List<Products> GetAllProducts()
+        {
+            var list = ReadFromFile();
+            return list;
         }
 
         private List<Products> ReadFromFile()

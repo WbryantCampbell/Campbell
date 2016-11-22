@@ -12,5 +12,6 @@ namespace FlooringMastery.Data
     public interface IProductRepository
     {
         Products FindByProductName(string productName);
+        List<Products> GetAllProducts();
     }
 }

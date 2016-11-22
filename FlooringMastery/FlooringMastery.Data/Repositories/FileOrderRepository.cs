@@ -105,18 +105,7 @@ namespace FlooringMastery.Data.Repositories
                     while ((inputline = sr.ReadLine()) != null)
                     {
                         string[] inputParts = inputline.Split(',');
-                        Order newOrder = new Order()
-                        //newOrder.CustomerName = inputParts[0];
-                        //newOrder.OrderNumber = int.Parse(inputParts[1]);
-                        //newOrder.State.State = inputParts[2];
-                        //newOrder.State.StateAbbrev = inputParts[3];
-                        //newOrder.State.TaxRate = decimal.Parse(inputParts[4]);
-                        //newOrder.Product.LaborCostSqFt = decimal.Parse(inputParts[5]);
-                        //newOrder.Product.MaterialCostSqFt = decimal.Parse(inputParts[6]);
-                        //newOrder.Product.ProductName = inputParts[7];
-                        //newOrder.Area = decimal.Parse(inputParts[8]);
-                        //newOrder.OrderTotal = decimal.Parse(inputParts[9]);
-                        //newOrder.DateOrdered = DateTime.Parse(inputParts[10]);   
+                        Order newOrder = new Order() 
                         {
                             OrderNumber = int.Parse(inputParts[0]),
                             CustomerName = inputParts[1],
@@ -136,16 +125,4 @@ namespace FlooringMastery.Data.Repositories
         }
     }
 }
-//private void WriteToFile(List<Account> accounts, string FileName)
-//        {
-//            using (StreamWriter sw = new StreamWriter(FileName, false))
-//            {
-//                // write the header line
-//                sw.WriteLine("ACCOUNTNUMBER,NAME,FIRSTNAME,LASTNAME,BALANCE");
-//
-//                foreach (var account in accounts)
-//                {
-//                    sw.WriteLine($"{account.AccountNumber},{account.Name},{account.FirstName},{account.LastName},{account.Balance}");
-//                }
-//            }
-//        }
+

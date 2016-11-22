@@ -54,5 +54,10 @@ namespace FlooringMastery.Data.Repositories
             return _products.First(a => a.ProductName == productName);
 
         }
+
+        public List<Products> GetAllProducts()
+        {
+            return _products;
+        }
     }
 }

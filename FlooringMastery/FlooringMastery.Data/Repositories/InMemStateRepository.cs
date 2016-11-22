@@ -61,5 +61,10 @@ namespace FlooringMastery.Data.Repositories
         {
             return _states.FirstOrDefault(a => a.StateAbbrev == abbrev);
         }
+
+        public List<States> GetAllStates()
+        {
+            return _states;
+        }
     }
 }

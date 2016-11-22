@@ -12,5 +12,6 @@ namespace FlooringMastery.Data
     {
         //Dictionary<string, States> CreateStateDictionary();
         States FindByStateAbbreviation(string abbrev);
+        List<States> GetAllStates();
     }
 }

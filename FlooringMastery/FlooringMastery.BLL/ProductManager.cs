@@ -45,6 +45,13 @@ namespace FlooringMastery.BLL
             return response;
         }
 
+        public List<Products> GetAllProducts()
+        {
+            var repo = RepositoryFactory.CreateProductRepository();
+
+            return repo.GetAllProducts();
+        }
+
         public decimal CalcLaborCost(Products product, decimal area)
         {
             decimal x = product.LaborCostSqFt;

@@ -1,0 +1,4 @@
+OrderNumber, CustomerName, DateOrdered, Area, StateAbbrev, StateName, TaxRate, ProdName, MaterialCostSqFt, LaborCostSqFt, OrderTotal, OrderTax
+1,Jaci Collins,11/21/2016 12:00:00 AM,456,OH,Ohio,6.25,Wood,5.15,4.75,4796.550000,282.150000
+3,Bryant Campbell,11/21/2016 12:00:00 AM,456,MI,Michigan,5.75,Wood,5.15,4.75,4773.978000,259.578000
+2,Johnny Walker,11/21/2016 12:00:00 AM,456,OH,Ohio,6.25,Wood,5.15,4.75,4796.550000,282.150000
