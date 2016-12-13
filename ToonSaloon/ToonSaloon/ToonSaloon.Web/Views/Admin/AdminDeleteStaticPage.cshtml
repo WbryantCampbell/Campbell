@@ -1,0 +1,69 @@
+﻿@model ToonSaloon.Models.StaticPage
+@{
+    ViewBag.Title = "AdminDeleteStaticPage";
+}
+
+@section styles{
+    <link rel='stylesheet' href='../../Content/app/HomePageStyles.css' type='text/css' />
+}
+<br />
+
+<div class="col-sm-8 col-sm-offset-2 bpost" style="margin-bottom: 40%;">
+
+    <h2 class="text-center">Static Page With Posts</h2>
+    @using (Html.BeginForm("AdminDeleteStaticPage", "Admin", FormMethod.Post))
+    {
+
+        <div class="form-group">
+            <label>Title</label>
+            @Html.HiddenFor(p=>p.Id)
+            @Html.DisplayFor(t => t.Name)
+        </div>
+
+        <div class="form-group">
+            <label>Page Information</label>
+            @Html.Raw(Model.Body)
+        </div>
+
+        <div class="form-group">
+            <label>Category Selected</label>
+            @Html.DisplayFor(t => t.Category)
+        </div>
+
+        <div class="form-group">
+            <label>Tags Selected</label>
+            @foreach(var tag in Model.Tag)
+            {
+                @Html.DisplayFor(t=>t.Name)
+            }
+        </div>
+
+        <button type="submit" class="col-sm-offset-2 btn-sm btn-success">Remove</button>
+        @Html.ActionLink("Cancel", "ManageStaticPages", "Admin", null, new { @class = "btn btn-sm btn-info" })
+
+    }
+
+    @*<h2 class="text-center">Delete Information Page</h2>
+    @using (Html.BeginForm("AdminDeleteStaticPage", "Admin", FormMethod.Post))
+    {
+
+        <div class="form-group">
+            <label>Title</label>
+            @Html.DisplayFor(p=>p.Name)
+        </div>
+
+        <div class="form-group">
+            <label>Page Information</label>
+            @Html.Raw(Model.Body)
+        </div>
+
+        <button type="submit" class="col-sm-offset-2 btn-lg btn-success">Delete</button>
+        @Html.ActionLink("Cancel", "ManageStaticPages", "Admin", null, new { @class = "btn btn-sm btn-info" })
+
+    }*@
+</div>
+
+@section scripts{
+    <script src='//cdn.tinymce.com/4/tinymce.min.js'></script>
+    <script src="~/Scripts/app/TinyMCE.js"></script>
+}

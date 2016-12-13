@@ -1,0 +1,40 @@
+﻿@model ToonSaloon.Models.StaticPage
+@{
+    ViewBag.Title = "AdminAddStaticPage";
+}
+
+@section styles{
+    <link rel='stylesheet' href='../../Content/app/HomePageStyles.css' type='text/css' />
+}
+<br />
+
+<div class="col-xs-10 bpost" style="padding: 30px">
+    <h2 class="text-center">Add Information Page</h2>
+    @using (Html.BeginForm("AdminAddStaticPage", "Admin", FormMethod.Post, new {id = "addPage"}))
+    {
+
+        @Html.ValidationSummary()
+        <div class="form-group">
+            <label>Title</label>
+            @Html.TextBoxFor(t => t.Name, new { @class = "form-control" })
+        </div>
+
+        <div class="form-group">
+            <label>Page Information</label>
+            @Html.TextAreaFor(t => t.Body, new { @class = "form-control" })
+        </div>
+
+        <button type="submit" class="col-sm-offset-2 btn-lg btn-success">Add</button>
+        @Html.ActionLink("Cancel", "ManageStaticPages", "Admin", null, new { @class = "btn btn-sm btn-info" })
+
+    }
+</div>
+
+@section scripts{
+    <script src="~/scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/scripts/jquery.validate.min.js"></script>
+    <script src="~/scripts/app/Validation/jquery-validate-default.js"></script>
+    <script src='//cdn.tinymce.com/4/tinymce.min.js'></script>
+    <script src="~/Scripts/app/TinyMCE.js"></script>
+    <script src="~/Scripts/app/Validation/AddPage.js"></script>
+}

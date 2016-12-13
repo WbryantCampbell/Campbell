@@ -1,0 +1,98 @@
+﻿#logo {
+    padding: 20px;
+}
+.bpost {
+    -webkit-box-shadow: 10px 10px 2px 2px #FF1F17;
+    box-shadow: 10px 10px 2px 2px #FF1F17;
+    -webkit-border-radius: 111px;
+    border-radius: 111px;
+    background-color: whitesmoke;
+    /*padding-right: 30vw;
+    width: 55vw;*/
+    padding: 10px 10px 10px 10px;
+}
+.datedate {
+    text-align: center;
+}
+.spacer {
+    padding-bottom: 10%;
+}
+#toonday {
+    -webkit-box-shadow: 10px 10px 2px 2px #FF1F17;
+    box-shadow: 10px 10px 2px 2px #FF1F17;
+    -webkit-border-radius: 111px;
+    border-radius: 111px;
+    background-color: whitesmoke;
+    width: 19vw;
+    height: 25vw;
+    margin-left: 10%;
+    margin-bottom: 8%;
+    padding-bottom: 10%;
+   padding-top: 1%
+}
+#toondayimg {
+    text-align: right;
+    padding:1px;
+    margin-left: 18.5%;
+    border:1px solid #021a40;
+    background-color:whitesmoke;
+    width: 12vw;
+    height: 27vh;   
+}
+#toondayshowtitle {
+    text-align: center;
+}
+#toonepisode {
+    text-align: center;
+}
+#social {
+    -webkit-box-shadow: 10px 10px 2px 2px #FF1F17;
+    box-shadow: 10px 10px 2px 2px #FF1F17;
+    -webkit-border-radius: 111px;
+    border-radius: 111px;
+    background-color: whitesmoke;
+    width: 19vw;
+    height: 17vw;
+    margin-top: 7%;
+    margin-left: 10%;
+    padding-top: 4%;
+}
+#share {
+    text-align: center;
+    padding-top: 8%; 
+}
+.postbody {
+    margin-left: 18%;
+}
+#tag {
+    padding-top: 54%;
+}
+#tags {
+    padding-top: 10%;
+}
+#populartags {
+    margin-top: 10%;
+    padding-bottom: 10%;
+    margin-left: 14%;
+    padding-left: 15%;
+    width: 19vw;
+    height: 19vw;
+   
+}
+.author {
+    text-align: right;
+}
+.cata {
+    padding-top: 10%;   
+    font-variant: small-caps;
+    font-weight: bolder;
+ 
+    vertical-align: middle;
+
+}
+.fixed {
+    position: fixed;
+}
+#infobody {
+    padding: 28px;
+}

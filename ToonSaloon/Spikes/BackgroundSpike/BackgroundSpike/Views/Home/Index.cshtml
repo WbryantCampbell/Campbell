@@ -1,0 +1,65 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+@section stylesheets{
+    <link rel='stylesheet' href='../../Content/app/unite-gallery.css' type='text/css'/>
+    <link rel='stylesheet' href='../../Content/app/ug-theme-default.css' type='text/css'/>
+<link rel='stylesheet' href='../../Content/app/boxstyle.css' type='text/css'/>
+}
+<div class="row" style="height: 45px"></div>
+<div class="row">
+    <div class="col-sm-2"></div>
+    <div class="col-sm-8"id="gallery" style="display: none;">
+
+        <img alt="Rick and Morty" @*src="../../Backgrounds/images/thumbs/rickmortythumb.jpg"*@
+             data-image="../../Backgrounds/images/rick.jpg"
+             data-description="Rick and Morty fan love their show so much.... it's rickfrickendicilous'">
+
+        <img alt="Get Schwifty" @*src="../../Backgrounds/images/thumbs/schwiftythumb.jpg"*@
+             data-image="../../Backgrounds/images/960.jpg"
+             data-description="Show me what you've got">
+
+        <img alt="Jan Michael-Vincent"
+             data-type="youtube"
+             data-videoid="nLB4dU3Yc6M"
+             data-description="I've got Jan Michael Fever Vincent Quadrant 16">
+    </div>
+    <div class="col-sm-2"></div>
+</div>
+
+<div class="row">
+    <div class="col-sm-4 text-center"></div>
+    <div class="bpost col-sm-4 text-center">
+        <p>
+            Pour-over flexitarian franzen af. Poutine austin wayfarers, paleo single-origin coffee raclette cliche XOXO.
+            Woke knausgaard fap succulents schlitz, health goth mumblecore single-origin coffee pour-over narwhal tote
+            bag chambray mixtape. Bitters freegan pickled gastropub migas, tacos vinyl. Yr blog cold-pressed, knausgaard
+            kinfolk four dollar toast lyft hashtag hella fam everyday carry asymmetrical thundercats. Scenester
+            farm-to-table keffiyeh, heirloom jean shorts fam health goth edison bulb distillery deep v gochujang polaroid
+            skateboard. Waistcoat sriracha prism, bespoke pok pok vape thundercats hot chicken.
+        </p>
+
+        <p>
+            Pickled humblebrag jean shorts, tousled thundercats bicycle rights unicorn. Kogi jianbing ennui, ugh tote bag
+            disrupt locavore. Deep v lomo hot chicken subway tile. Austin photo booth beard glossier, post-ironic lo-fi
+            gastropub neutra retro dreamcatcher health goth pitchfork distillery pour-over. Banjo XOXO yr man braid. Live-edge
+            mixtape sriracha, seitan meggings copper mug organic shabby chic chambray fixie roof party wayfarers flexitarian
+            church-key. Cornhole gluten-free leggings lomo.
+        </p>
+
+        <p>
+            Distillery umami master cleanse, ennui you probably haven't heard of them ramps sriracha vaporware. Fixie flannel
+            pinterest, raw denim sriracha waistcoat meh man bun tofu kombucha single-origin coffee. Meditation biodiesel glossier,
+            lo-fi cardigan butcher listicle tote bag retro four loko whatever live-edge selfies beard semiotics. Schlitz flexitarian
+            XOXO slow-carb chia subway tile, hell of single-origin coffee umami fanny pack photo booth lomo artisan microdosing
+            bespoke. Thundercats humblebrag 8-bit mustache farm-to-table. Tumblr austin yr, letterpress kale chips chartreuse
+            craft beer taxidermy. Meggings kombucha franzen truffaut, glossier subway tile umami mlkshk gochujang.
+        </p>
+    </div>
+    <div class="col-sm-4 text-center"></div>
+    @section scripts{
+        <script type='text/javascript' src='../../Scripts/app/unitegallery.min.js'></script>
+        <script type='text/javascript' src='../../Scripts/app/ug-theme-default.js'></script>
+        <script type='text/javascript' src='../../Scripts/app/Initgallery.js'></script>    
+    }
+</div>

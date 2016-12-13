@@ -1,0 +1,78 @@
+﻿@model ToonSaloon.Models.Models.StaticPageSearchVM 
+@{
+    ViewBag.Title = "AdminEditStaticPage";
+}
+
+@section styles{
+    <link rel='stylesheet' href='../../Content/app/HomePageStyles.css' type='text/css' />
+}
+
+<div class="col-xs-10 bpost" style="padding: 20px; margin-bottom: 10%">
+    @Html.HiddenFor(p=>p.Page.Id)
+    <h2 class="text-center">Edit Information Page</h2>
+    @using (Html.BeginForm("AdminStaticPageWithPosts", "Admin", FormMethod.Post, new {id = "addPage"}))
+    {
+        @Html.ValidationSummary()
+        @Html.HiddenFor(p => p.Page.Id)
+        @Html.HiddenFor(t=> t.Page.DateCreated)
+
+        <div class="form-group">
+            <label>Title</label>          
+            @Html.TextBoxFor(t => t.Page.Name, new { @class = "form-control" })
+        </div>
+
+        <div class="form-group">
+            <label>Page Information</label>
+            @Html.TextAreaFor(t => t.Page.Body, new { @class = "form-control" })
+        </div>
+
+        <div class="form-group">
+            <label>Select Category</label>
+            @Html.EnumDropDownListFor(t => t.Page.Category, new { @class = "form-control" })
+        </div>
+
+        <div class="form-group">
+            <label>Select Tags</label>
+            @Html.ListBoxFor(t => t.SelectedTagIds, Model.Tags, new { @class = "form-control" })
+        </div>
+
+        <button type="submit" class="col-sm-offset-2 btn-sm btn-success">Save</button>
+        @Html.ActionLink("Cancel", "ManageStaticPages", "Admin", null, new { @class = "btn btn-sm btn-info" })
+
+    }
+</div>
+
+@section scripts{
+    <script src="~/scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/scripts/jquery.validate.min.js"></script>
+    <script src="~/scripts/app/Validation/jquery-validate-default.js"></script>
+    <script src='//cdn.tinymce.com/4/tinymce.min.js'></script>
+    <script src="~/Scripts/app/TinyMCE.js"></script>
+    <script src="~/Scripts/app/Validation/AddPage.js"></script>
+}
+
+@*<div class="col-xs-10 bpost">
+    <h2 class="text-center">Edit Information Page</h2>
+    @using (Html.BeginForm("AdminEditStaticPage", "Admin", FormMethod.Post))
+    {
+
+        <div class="form-group">
+            <label>Title</label>
+            @Html.TextBoxFor(t => t.Name, new { @class = "form-control" })
+        </div>
+
+        <div class="form-group">
+            <label>Page Information</label>
+            @Html.TextAreaFor(t => t.Body, new { @class = "form-control" })
+        </div>
+
+        <button type="submit" class="col-sm-offset-2 btn-lg btn-success">Edit</button>
+        @Html.ActionLink("Cancel", "ManageStaticPages", "Admin", null, new { @class = "btn btn-sm btn-info" })
+
+    }
+</div>
+
+@section scripts{
+    <script src='//cdn.tinymce.com/4/tinymce.min.js'></script>
+    <script src="~/Scripts/app/TinyMCE.js"></script>
+}*@

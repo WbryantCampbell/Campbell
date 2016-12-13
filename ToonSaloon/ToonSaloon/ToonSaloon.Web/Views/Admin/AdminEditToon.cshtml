@@ -1,0 +1,61 @@
+﻿@model ToonSaloon.Models.CartoonOfTheDay
+@{
+    ViewBag.Title = "AdminEditToon";
+}
+
+@section styles{
+    <link rel='stylesheet' href='../../Content/app/SinglePostStyle.css' type='text/css' />
+}
+<br />
+
+<div class="col-sm-6 col-sm-offset-3 bpost" style="margin-bottom: 65%">
+    <h2 class="text-center">Edit Toon</h2>
+    @using (Html.BeginForm("AdminEditToon", "Admin", FormMethod.Post, new {enctype = "multipart/from-data", id = "editToon"}))
+    {
+        @Html.ValidationSummary()
+       @*<div class="invisible">*@
+        @Html.HiddenFor(model => Model.ImgUrl)
+        ;
+            @*</div>*@
+
+        @Html.HiddenFor(t => t.Id)
+        @Html.HiddenFor(t => t.DateCreated)
+        @Html.HiddenFor(t => t.WhenPosted)
+        @Html.HiddenFor(t => t.Approved)
+        <div style="padding-left: 25%;">
+            <div class="form-group">
+                <label>Show Name</label>
+                @Html.TextBoxFor(t => t.ShowName, new {@class = "form-control"})
+            </div>
+
+            <div class="form-group">
+                <label>Season</label>
+                @Html.TextBoxFor(t => t.Season, new {@class = "form-control"})
+            </div>
+
+            <div class="form-group">
+                <label>Episode</label>
+                @Html.TextBoxFor(t => t.Episode, new {@class = "form-control"})
+            </div>
+
+            <div class="form-group">
+                <label>Author</label>
+                @Html.TextBoxFor(t => t.Author, new {@class = "form-control"})
+            </div>
+
+            <div class="form-group">
+                <img id="img" src="@Model.ImgUrl"/>
+                @Html.HiddenFor(t => t.ImgUrl, new {@class = "form-control"})
+            </div>
+            <button type="submit" class="col-sm-offset-2 btn-lg btn-success">Save</button>
+            @Html.ActionLink("Cancel", "ManageToonOfTheDay", "Admin", null, new {@class = "btn btn-lg btn-info"})
+        </div>
+    }
+</div>
+
+@section scripts{
+    <script src="~/scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/scripts/jquery.validate.min.js"></script>
+    <script src="~/scripts/app/Validation/jquery-validate-default.js"></script>
+    <script src="~/Scripts/app/Validation/EditToon.js"></script>
+}
